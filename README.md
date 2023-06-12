@@ -8,3 +8,6 @@ pip install django==3.2
 
 ## アプリの作成
 python manage.py startapp main
+
+## アプリを実行する
+python manage.py runserver
