@@ -6,6 +6,6 @@
     <title>速習 Django</title>
   </head>
   <body>
-    <p>{{ msg }}</p>
+    {{ flag|yesno:'OK,NG,Unknown' }}
   </body>
 </html>

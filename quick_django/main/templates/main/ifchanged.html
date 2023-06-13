@@ -6,6 +6,10 @@
     <title>速習 Django</title>
   </head>
   <body>
-    <p>{{ msg }}</p>
+    {% for day, body in schedule %} {% ifchanged day %}
+    <h3>{{day}}日</h3>
+    {% endifchanged %}
+    <p>{{body}}</p>
+    {% endfor %}
   </body>
 </html>

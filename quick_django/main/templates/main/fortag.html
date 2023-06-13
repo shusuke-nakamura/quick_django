@@ -6,6 +6,8 @@
     <title>速習 Django</title>
   </head>
   <body>
-    <p>{{ msg }}</p>
+    {% with ''|center:10 as range %} {% for _ in range %}
+    <p>こんにちは、赤ちゃん！</p>
+    {% endfor %} {% endwith %}
   </body>
 </html>
