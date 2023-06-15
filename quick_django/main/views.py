@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Book
 import random
-import datetime
+from datetime import datetime
 
 def index(request):
     return HttpResponse('こんにちは、世界！')
@@ -105,8 +105,33 @@ def master(request):
 def include(request):
     return render(request, 'main/include.html', {
         'name': '鈴木',
-        'current': datetime.datetime.now(),
+        'current': datetime.now(),
     })
     
 def static(request):
     return render(request, 'main/static.html')
+
+def strformat(request):
+    return render(request, 'main/strformat.html', {
+      'data1': None,
+      'data2': 'WINGS\nWww INtegrated Guide on Server-architecture',
+      'data3': 'https://wings.msn.to/',
+      'data4': [ 'い', 'ろ', 'は', 'に', 'ほ', 'へ' ],
+      'data5': 987.654,
+      'data6': 'hello django'
+    })
+    
+def slice(request):
+    return render(request, 'main/slice.html', {
+        'data': ['い', 'ろ', 'は', 'に', 'ほ', 'へ']
+    })
+
+def lists(request):
+    return render(request, 'main/lists.html', {
+        'data': [ 'いろは歌', [ 'い', 'ろ', 'は', 'に', 'ほ', 'へ','と' ] ]
+    })
+    
+def date_time(request):
+    return render(request, 'main/date_time.html', {
+        'today': datetime.now()
+    })

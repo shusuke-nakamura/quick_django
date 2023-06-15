@@ -21,4 +21,8 @@ urlpatterns = [
     path('master', views.master, name='master'),
     path('include', views.include, name='include'),
     path('static', views.static, name='static'),
+    path('strformat', views.strformat, name='strformat'),
+    path('slice', views.slice, name='slice'),
+    path('lists', views.lists, name='lists'),
+    path('date_time', views.date_time, name='date_time'),
 ]
