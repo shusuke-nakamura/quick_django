@@ -5,9 +5,25 @@
 		}
 	],
 	"settings": {
+		"[html]":{
+			"editor.formatOnSave": true,
+		},
+		"[django-html]": {
+			"editor.quickSuggestions": {
+				"other": true,
+				"comments": true,
+				"strings": true
+			},
+		},
+		"[python]": {
+			"diffEditor.ignoreTrimWhitespace": false,
+			"editor.formatOnType": true,
+			"editor.wordBasedSuggestions": false,
+			"editor.formatOnSave": true,
+		},
 		"emmet.includeLanguages": {
 			"django-html": "html",
 		},
-		"editor.formatOnSave": true
+		"python.terminal.activateEnvInCurrentTerminal": true,
 	}
 }

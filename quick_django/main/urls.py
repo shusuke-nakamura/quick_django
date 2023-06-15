@@ -14,4 +14,8 @@ urlpatterns = [
     path('fortag', views.fortag, name='fortag'),
     path('ifchanged', views.ifchanged, name='ifchanged'),
     path('regroup', views.regroup, name='regroup'),
+    path('cycle', views.cycle, name="cycle"),
+    path('escape', views.escape, name="escape"),
+    path('temptag', views.temptag, name='temptag'),
+    path('verbatim', views.verbatim, name='verbatim'),
 ]

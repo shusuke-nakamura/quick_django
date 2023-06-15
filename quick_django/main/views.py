@@ -72,3 +72,26 @@ def regroup(request):
             {'name': '田中久美', 'sex': '女', 'birth': '1980-09-07'},
         ]
     })
+    
+def cycle(request):
+    return render(request, 'main/cycle.html', {
+        'members': [
+            {'name': '鈴木三郎', 'sex': '男', 'birth': '1980-12-23'},
+            {'name': '山田次郎', 'sex': '男', 'birth': '1978-10-13'},
+            {'name': '佐藤健司', 'sex': '男', 'birth': '1976-04-06'},
+            {'name': '山本花子', 'sex': '女', 'birth': '1981-07-28'},
+            {'name': '田中久美', 'sex': '女', 'birth': '1980-09-07'},
+        ]
+    })
+    
+def escape(request):
+    return render(request, 'main/escape.html', {
+        'msg': '''<img src="https://wings.msn.to/image/wings.jpg" title="ロゴ" />
+            <p>WINGSへようこそ</p>'''
+    })
+    
+def temptag(request):
+    return render(request, 'main/temptag.html')
+
+def verbatim(request):
+    return render(request, 'main/verbatim.html')
