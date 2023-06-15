@@ -36,3 +36,8 @@ db_user/db_pass12345
 ## Django Shell
 
 python manage.py shell
+
+## フィクスチャーの実行
+python manage.py loaddata book
+
+ModuleNotFoundError: No module named 'yaml'のエラーが発生した場合、pip install pyyamlでインストールする。
