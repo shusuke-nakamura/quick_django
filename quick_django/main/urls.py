@@ -18,4 +18,7 @@ urlpatterns = [
     path('escape', views.escape, name="escape"),
     path('temptag', views.temptag, name='temptag'),
     path('verbatim', views.verbatim, name='verbatim'),
+    path('master', views.master, name='master'),
+    path('include', views.include, name='include'),
+    path('static', views.static, name='static'),
 ]

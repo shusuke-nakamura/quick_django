@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Book
 import random
+import datetime
 
 def index(request):
     return HttpResponse('こんにちは、世界！')
@@ -95,3 +96,17 @@ def temptag(request):
 
 def verbatim(request):
     return render(request, 'main/verbatim.html')
+
+def master(request):
+    return render(request, 'main/master.html', {
+        'msg': 'こんにちは、世界！',
+    })
+
+def include(request):
+    return render(request, 'main/include.html', {
+        'name': '鈴木',
+        'current': datetime.datetime.now(),
+    })
+    
+def static(request):
+    return render(request, 'main/static.html')
