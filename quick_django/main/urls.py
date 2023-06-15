@@ -25,4 +25,6 @@ urlpatterns = [
     path('slice', views.slice, name='slice'),
     path('lists', views.lists, name='lists'),
     path('date_time', views.date_time, name='date_time'),
+    path('filter', views.filter, name='fiter'),
+    path('exclude', views.exclude, name='exclude'),
 ]
