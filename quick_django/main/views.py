@@ -135,3 +135,15 @@ def date_time(request):
     return render(request, 'main/date_time.html', {
         'today': datetime.now()
     })
+
+def filter(request):
+    books = Book.objects.filter(publisher='翔泳社', price='2800')
+    return render(request, 'main/book_list.html', {
+        'books': books
+    })
+    
+def exclude(request):
+    books = Book.objects.exclude(publisher='翔泳社')
+    return render(request, 'main/book_list.html', {
+        'books': books
+    })
