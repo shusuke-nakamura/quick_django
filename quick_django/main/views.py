@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from .models import Book
 import random
 from datetime import datetime
+from django.db.models import Q
+from django.db.models import Count
 
 def index(request):
     return HttpResponse('こんにちは、世界！')
@@ -146,4 +148,54 @@ def exclude(request):
     books = Book.objects.exclude(publisher='翔泳社')
     return render(request, 'main/book_list.html', {
         'books': books
+    })
+    
+def get(request):
+    book = Book.objects.get(pk=1)
+    return render(request, 'main/book_detail.html', {
+        'book': book
+    })
+
+def filter_or(request):
+    # books = Book.objects.filter(publisher='翔泳社').filter(price__gte=2800)
+    # books = Book.objects.filter(Q(publisher='翔泳社') | Q(price__gte = 2800))
+    books = Book.objects.filter(~Q(publisher='翔泳社') & (Q(published__year=2018) | Q(published__year=2020)))
+    return render(request, 'main/book_list.html', {
+        'books': books
+    })
+
+def filter_other(request):
+    books = Book.objects.order_by('publisher', '-published')
+    return render(request, 'main/book_list.html', {
+        'books': books
+    })
+    
+def groupby(request):
+    return render(request, 'main/groupby.html', {
+        'groups': Book.objects.values('publisher').annotate(pub_count=Count('publisher')).order_by('-pub_count')
+    })
+
+def union(request):
+    b1 = Book.objects.filter(publisher='翔泳社')
+    b2 = Book.objects.filter(publisher='技術評論社')
+    return render(request, 'main/book_list.html', {
+        'books': b1.union(b2)
+    })
+
+def raw(request):
+    books = Book.objects.raw(
+        'SELECT * FROM main_book WHERE publisher = %s', ['翔泳社']
+    )
+    return render(request, 'main/book_list.html', {
+        'books': books
+    })
+
+def rel(request):
+    return render(request, 'main/rel.html', {
+        'book': Book.objects.get(pk=1)
+    })
+
+def rel2(request):
+    return render(request, 'main/rel2.html', {
+        'books': Book.objects.all()
     })
