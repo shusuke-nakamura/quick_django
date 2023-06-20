@@ -35,4 +35,9 @@ urlpatterns = [
     path('raw', views.raw, name='raw'),
     path('rel', views.rel, name='rel'),
     path('rel2', views.rel2, name='rel2'),
+
+    path('route_param/', views.route_param, name='route_param'),
+    path('route_param/<int:id>', views.route_param, name='route_param'),
+    path('search/<path:keywd>', views.search, name='search'),
+    path('req_query', views.req_query, name='req_query'),
 ]

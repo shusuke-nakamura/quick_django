@@ -199,3 +199,12 @@ def rel2(request):
     return render(request, 'main/rel2.html', {
         'books': Book.objects.all()
     })
+    
+def route_param(request, id=1):
+    return HttpResponse(f'id値: {id}')
+
+def search(request, keywd):
+    return HttpResponse(f'パラメータ: {keywd}')
+
+def req_query(request):
+    return HttpResponse(f'id値: {request.GET["id"]}')
