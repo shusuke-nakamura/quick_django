@@ -208,3 +208,6 @@ def search(request, keywd):
 
 def req_query(request):
     return HttpResponse(f'id値: {request.GET["id"]}')
+
+def req_header(request):
+    return HttpResponse(f'Use-Agent： {request.headers["User-Agent"]}')
